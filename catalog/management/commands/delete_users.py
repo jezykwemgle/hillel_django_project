@@ -17,7 +17,7 @@ class Command(BaseCommand):
 
         user_list = User.objects.filter(pk__in=users_id).exclude(is_superuser=True)
         user_list.delete()
-        return self.stdout.write(self.style.ERROR('SUCCESS'))
+        return self.stdout.write(self.style.SUCCESS('SUCCESS'))
 
 
 

@@ -13,19 +13,17 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         number = options.get('number')
         if number < 1 or number > 10:
+            self.stdout.write(self.style.ERROR('Can not create users'))
             raise ValueError('Number of users should be between 1 and 10')
 
         users = []
         fake = Faker()
         for i in range(number):
             new_user = fake.simple_profile()
-            username = new_user.get('username')
-            email = new_user.get('mail')
-            password = make_password(fake.password())
-            user = User(username=username, email=email)
-            user.set_password(password)
+            user = User(username=new_user.get('username'), email=new_user.get('mail'))
+            user.set_password(make_password(fake.password()))
             users.append(user)
 
         User.objects.bulk_create(users)
-        return self.stdout.write(self.style.ERROR('SUCCESS'))
+        return self.stdout.write(self.style.SUCCESS('SUCCESS'))
 
