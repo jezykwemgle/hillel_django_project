@@ -1,9 +1,9 @@
-from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
-    help = 'Delete users by ID'
+    help = 'Delete users by ID'  # noqa: A003
 
     def add_arguments(self, parser):
         parser.add_argument('user_id', type=int, nargs='*', help='')
@@ -18,7 +18,3 @@ class Command(BaseCommand):
         user_list = User.objects.filter(pk__in=users_id).exclude(is_superuser=True)
         user_list.delete()
         return self.stdout.write(self.style.SUCCESS('SUCCESS'))
-
-
-
-

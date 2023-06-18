@@ -1,11 +1,12 @@
-from django.core.management.base import BaseCommand
-from faker import Faker
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
+from django.core.management.base import BaseCommand
+
+from faker import Faker
 
 
 class Command(BaseCommand):
-    help = 'Generate random users'
+    help = 'Generate random users'  # noqa: A003
 
     def add_arguments(self, parser):
         parser.add_argument('number', type=int, help='The number of users to be created')
@@ -26,4 +27,3 @@ class Command(BaseCommand):
 
         User.objects.bulk_create(users)
         return self.stdout.write(self.style.SUCCESS('SUCCESS'))
-
