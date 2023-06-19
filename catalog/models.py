@@ -1,6 +1,7 @@
-from django.db import models
 from django.core.validators import RegexValidator
+from django.db import models
 from django.urls import reverse
+
 
 class City(models.Model):
     """Model representing a city"""
@@ -16,6 +17,7 @@ class City(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a particular city."""
         return reverse('city-detail', args=[str(self.id)])
+
 
 class Product(models.Model):
     """Model representing a product"""
@@ -54,6 +56,7 @@ class Client(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a particular client."""
         return reverse('client-detail', args=[str(self.id)])
+
 
 class Supplier(models.Model):
     """Model representing a supplier"""
