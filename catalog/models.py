@@ -54,6 +54,7 @@ class Product(models.Model):
         ordering = ['product_name', 'price']
 
     def __str__(self):
+        """String for representing the Model object (in Admin site etc.)"""
         return f'{self.product_name}\n{self.description}'
 
     def get_absolute_url(self):
@@ -80,4 +81,5 @@ class Client(models.Model):
 
     @admin.display(description='')
     def get_products(self):
+        """Returns all products from Client"""
         return ", ".join([p.product_name for p in self.products.all()])
