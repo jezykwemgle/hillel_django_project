@@ -1,5 +1,6 @@
 from django.contrib import admin  # noqa: F401
-from .models import City, Product, Supplier, Client
+
+from .models import City, Client, Product, Supplier
 
 
 @admin.register(City)

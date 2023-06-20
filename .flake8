@@ -5,5 +5,6 @@ exclude =
     # There's no value in checking cache directories
     __pycache__,
     venv,
-    migrations
+    migrations,
+    requirements.txt
 max-line-length=120

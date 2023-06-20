@@ -1,7 +1,7 @@
+from django.contrib import admin
 from django.core.validators import RegexValidator
 from django.db import models
 from django.urls import reverse
-from django.contrib import admin
 
 
 class City(models.Model):
@@ -81,4 +81,3 @@ class Client(models.Model):
     @admin.display(description='')
     def get_products(self):
         return ", ".join([p.product_name for p in self.products.all()])
-
