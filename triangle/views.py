@@ -1,6 +1,8 @@
+from math import pow, sqrt
+
 from django.shortcuts import render
+
 from .forms import TriangleForm
-from math import sqrt, pow
 
 
 def triangle_hypotenuse(request):
