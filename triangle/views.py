@@ -1,16 +1,16 @@
 from math import pow, sqrt
 
 from django.contrib import messages
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from .forms import TriangleForm, PersonForm
-
+from .forms import PersonForm, TriangleForm
 from .models import Person
 
 
 def view_main_paige(request):
     return render(request, 'main_paige.html')
+
 
 def triangle_hypotenuse(request):
     if request.method == 'POST':

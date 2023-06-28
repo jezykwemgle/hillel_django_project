@@ -10,7 +10,6 @@ class PersonForm(forms.ModelForm):
 
     class Meta:
         model = Person
-        fields = '__all__'
 
 
 class TriangleForm(forms.Form):
@@ -28,5 +27,3 @@ class TriangleForm(forms.Form):
         if cathetus2 <= 0:
             raise ValidationError("Catheters must be greater than 0")
         return cathetus2
-
-
