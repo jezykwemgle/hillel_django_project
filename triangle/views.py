@@ -42,8 +42,8 @@ def person_detail(request, pk):
 
 
 def update_person(request, pk):
-    obj = get_object_or_404(Person, pk=pk)
     if request.method == 'POST':
+        obj = get_object_or_404(Person, pk=pk)
         form = PersonForm(request.POST, instance=obj)
         if form.is_valid():
             if form.has_changed():
@@ -53,7 +53,8 @@ def update_person(request, pk):
                 messages.info(request, "Person is up to date")
         return redirect(reverse('person_detail', args=[obj.pk]))
     else:
-        form = PersonForm()
+        obj = get_object_or_404(Person, pk=pk)
+        form = PersonForm(instance=obj)
         return render(request, 'update_person.html', {'form': form})
 
 
