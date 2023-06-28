@@ -1,6 +1,17 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
+from .models import Person
+
+
+class PersonForm(forms.ModelForm):
+    model = Person
+    field = ["first_name", "last_name", "email"]
+
+    class Meta:
+        model = Person
+        fields = '__all__'
+
 
 class TriangleForm(forms.Form):
     cathetus1 = forms.IntegerField(required=True)
@@ -17,3 +28,5 @@ class TriangleForm(forms.Form):
         if cathetus2 <= 0:
             raise ValidationError("Catheters must be greater than 0")
         return cathetus2
+
+
