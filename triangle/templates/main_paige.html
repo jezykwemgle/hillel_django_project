@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Main Paige{% endblock title %}</title>
+</head>
+<body>
+
+<h1>Main Paige</h1>
+<p><a href="{% url 'triangle_hypotenuse' %}">  Hypotenuse </a></p>
+<p><a href="{% url 'create_person' %}">  Create Person </a></p>
+<p><a href="{% url 'all_person' %}">  Person List </a></p>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Persons List</h1>
+{% for person in obj %}
+<p>
+    First Name: {{ person.first_name }}
+</p>
+<p>
+    Last Name: {{ person.last_name }}
+</p>
+<p>
+    Email: {{ person.email }}
+</p>
+<a href="{% url 'person_detail' person.pk %}">Detail View</a>
+<hr>
+{% endfor %}
+</body>
+</html>
